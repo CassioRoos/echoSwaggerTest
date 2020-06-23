@@ -8,7 +8,7 @@
 docker-compose up --build
 ```
 
-After that, just access the [swagger](http://localhost:7777/swagger/index.html)
+After that, just access the [swagger - http://localhost:7777/swagger/index.html](http://localhost:7777/swagger/index.html)
 
 While doing this POC I made some comments in the code that might help who is looking to implement Swagger
 
