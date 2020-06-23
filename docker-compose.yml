@@ -1,6 +1,6 @@
 version: '3.0'
 services:
-  web:
+  api:
     build: .
     ports:
       - 7777:7777
