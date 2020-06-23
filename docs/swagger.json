@@ -1,0 +1,88 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "Just a simple poc for swagger",
+        "title": "Swagger POC",
+        "termsOfService": "http://swagger.io/terms/",
+        "contact": {
+            "name": "Cassio Roos",
+            "url": "https://github.com/CassioRoos/",
+            "email": "cassio.roos@gmail.com"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1"
+    },
+    "host": "localhost:7777",
+    "paths": {
+        "/goodnight/{to}": {
+            "get": {
+                "description": "Say GoodNight to someone",
+                "summary": "Be polite and say goodnight to a friend.",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "The person whom you want to say goodnight",
+                        "name": "to",
+                        "in": "path",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "GoodNight",
+                        "schema": {
+                            "$ref": "#/definitions/handlers.GoodNight"
+                        }
+                    },
+                    "400": {
+                        "description": "Bad Request",
+                        "schema": {
+                            "$ref": "#/definitions/handlers.HTTPError"
+                        }
+                    }
+                }
+            }
+        },
+        "/hello": {
+            "get": {
+                "description": "Hello World",
+                "summary": "Say Hello to the world :D.",
+                "responses": {
+                    "200": {
+                        "description": "ok",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "handlers.GoodNight": {
+            "type": "object",
+            "properties": {
+                "date": {
+                    "type": "string"
+                },
+                "text": {
+                    "type": "string"
+                }
+            }
+        },
+        "handlers.HTTPError": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}

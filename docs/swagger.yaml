@@ -1,0 +1,58 @@
+definitions:
+  handlers.GoodNight:
+    properties:
+      date:
+        type: string
+      text:
+        type: string
+    type: object
+  handlers.HTTPError:
+    properties:
+      code:
+        type: integer
+      message:
+        type: string
+    type: object
+host: localhost:7777
+info:
+  contact:
+    email: cassio.roos@gmail.com
+    name: Cassio Roos
+    url: https://github.com/CassioRoos/
+  description: Just a simple poc for swagger
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  termsOfService: http://swagger.io/terms/
+  title: Swagger POC
+  version: "1"
+paths:
+  /goodnight/{to}:
+    get:
+      description: Say GoodNight to someone
+      parameters:
+      - description: The person whom you want to say goodnight
+        in: path
+        name: to
+        required: true
+        type: string
+      responses:
+        "200":
+          description: GoodNight
+          schema:
+            $ref: '#/definitions/handlers.GoodNight'
+        "400":
+          description: Bad Request
+          schema:
+            $ref: '#/definitions/handlers.HTTPError'
+      summary: Be polite and say goodnight to a friend.
+  /hello:
+    get:
+      description: Hello World
+      responses:
+        "200":
+          description: ok
+          schema:
+            type: string
+      summary: Say Hello to the world :D.
+swagger: "2.0"
