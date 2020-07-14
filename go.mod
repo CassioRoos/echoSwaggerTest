@@ -11,6 +11,7 @@ require (
 	github.com/labstack/echo v3.3.10+incompatible // indirect
 	github.com/labstack/echo/v4 v4.1.16
 	github.com/mailru/easyjson v0.7.1 // indirect
+	github.com/nicholasjackson/env v0.6.0
 	github.com/swaggo/echo-swagger v1.0.0
 	github.com/swaggo/swag v1.6.7
 	github.com/urfave/cli/v2 v2.2.0 // indirect

@@ -1,0 +1,45 @@
+version: '3.0'
+services:
+  nginx:
+    container_name: nginx_api
+    build:
+      context: ./..
+      dockerfile: docker/nginx/Dockerfile
+    ports:
+      - 80:80
+    depends_on:
+      - api_1
+      - api_2
+      - api_3
+    networks:
+      - api_netcorp
+  api_1:
+    build: ./..
+    container_name: api_1
+    environment:
+      - SERVER_ADDRESS=${SERVER_ADDRESS:-:7777}
+    ports:
+      - 7777:7777
+    networks:
+      - api_netcorp
+  api_2:
+    container_name: api_2
+    build: ./..
+    environment:
+      - SERVER_ADDRESS=${SERVER_ADDRESS:-:7778}
+    ports:
+      - 7778:7778
+    networks:
+      - api_netcorp
+  api_3:
+    container_name: api_3
+    build: ./..
+    environment:
+      - SERVER_ADDRESS=${SERVER_ADDRESS:-:7779}
+    ports:
+      - 7779
+    networks:
+      - api_netcorp
+networks:
+  api_netcorp:
+    driver: bridge
